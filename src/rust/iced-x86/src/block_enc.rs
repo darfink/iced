@@ -366,7 +366,7 @@ impl BlockEncoder {
 					return Err(IcedError::new("Internal error"));
 				}
 				if (self.options & BlockEncoderOptions::RETURN_NEW_INSTRUCTION_OFFSETS) != 0 {
-					new_instruction_offsets.push(ip.wrapping_sub(block.rip));
+					new_instruction_offsets.push(ip.wrapping_sub(block.rip) as u32);
 				}
 				ip = ip.wrapping_add(size as u64);
 			}
